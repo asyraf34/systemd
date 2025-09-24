@@ -193,7 +193,7 @@ public final class Core {
 
 	/**
 	 * Controls access to the logger.
-	 *
+	 *sh
 	 * @return Application logger.
 	 */
 	public static Logger getLogger() {
