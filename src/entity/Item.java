@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import engine.DrawManager.SpriteType;
 
+import engine.GameState;
 import engine.ItemManager.ItemType;
 
 
@@ -61,8 +62,24 @@ public class Item extends Entity {
         this.positionY += this.itemSpeed;
     }
 
+    public void applyEffect() {
+    }
     /** Apply the Item's effect. */
-    public void applyEffect(){};
+    public void applyEffect(final Ship ship, final GameState state){
+        if (this.type == engine.ItemManager.ItemType.COIN) {
+            final int coinAmount = 10; // coin item value
+            if (ship != null && state != null) {
+
+                int playerIndex = ship.getPlayerId() - 1;
+                if (playerIndex >= 0 && playerIndex < GameState.NUM_PLAYERS) {
+                    state.addCoins(playerIndex, coinAmount);
+                }
+            }
+        } else {
+            // heal and score item can be implemented here.
+        }
+    }
+
 
     /**
      * Setter of the speed of the Item.
@@ -92,4 +109,6 @@ public class Item extends Entity {
     public final ItemType getType() {
         return this.type;
     }
+
+
 }

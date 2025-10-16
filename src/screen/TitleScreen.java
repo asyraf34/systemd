@@ -126,7 +126,6 @@ public class TitleScreen extends Screen {
 		drawManager.initDrawing(this);
 
         // Main menu space animation
-        drawManager.updateMenuSpace();
 
 		drawManager.drawTitle(this);
 		drawManager.drawMenu(this, this.menuIndex); // 2P mode: using menu index for highlighting
