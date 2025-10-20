@@ -183,11 +183,13 @@ public class GameState {
 	// 2P mode: per-player coin tracking
     public int getCoins() { return coins; } // legacy total for ScoreScreen
 
+    // Currency system: function to add coin
     public void addCoins(final int p, final int delta) {
         if (p >= 0 && p < NUM_PLAYERS && delta > 0)
             coins = Math.max(0, coins + delta);
     }
 
+    // Currency system: to spend coins
     public boolean spendCoins(final int p, final int amount) {
         if (p < 0 || p >= NUM_PLAYERS || amount < 0) return false;
         if (coins < amount) return false;
