@@ -184,11 +184,13 @@ public class GameState {
     public int getCoins(final int p) { return (p >= 0 && p < NUM_PLAYERS) ? coins[p] : 0; }
     public int getCoins() { return coins[0]; } // legacy total for ScoreScreen
 
+    // Currency system: function to add coin
     public void addCoins(final int p, final int delta) {
         if (p >= 0 && p < NUM_PLAYERS && delta > 0)
             coins[p] = Math.max(0, coins[p] + delta);
     }
 
+    // Currency system: to spend coins
     public boolean spendCoins(final int p, final int amount) {
         if (p < 0 || p >= NUM_PLAYERS || amount < 0) return false;
         if (coins[p] < amount) return false;
